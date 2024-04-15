@@ -43,7 +43,7 @@
   - name: Add sudoer rule for local user
     copy:
       dest: /etc/sudoers.d/admin
-      src: etc/ sudoers.d/admin
+      src: etc/sudoers.d/admin
       owner: root
       group: root
       mode: 0440
@@ -71,7 +71,7 @@
       zone: internal
       source: "{{ item }} "
       state: enabled
-      immediate:
+      immediate: yes
       permanent: yes
     with items: "{{ allowed_ssh_networks }}"
 
@@ -90,10 +90,10 @@
 
   - name: Stop and disable unnecessary services
     service:
-      name: "{{ stopped }}"
+      name: "{{ item }}"
       state: stopped
       enabled: no
-    with items: "{{ unnecessary _ services }}"
+    with items: "{{ unnecessary_services }}"
     ignore_errors: yes
 
   - name: Set a message of the day
