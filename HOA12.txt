@@ -18,7 +18,6 @@
       name : '*'
       state: latest
 
-
   - name: Add admin group
     group:
       name: admin
