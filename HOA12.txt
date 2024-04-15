@@ -2,9 +2,8 @@
 
 - hosts: all
   vars:
-    allowed _ ssh_networks:
-      - 192.168.122.€/24
-      - 10.10.10.0/24
+    allowed_ssh_networks:
+      - 192.168.56.102/24
     unnecessary services:
       - postfix
       - telnet
