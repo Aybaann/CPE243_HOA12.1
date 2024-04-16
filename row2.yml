@@ -43,8 +43,8 @@
 
     - name: Add sudoer rule for local user
       copy:
-        dest: files/etc/sudoers.d/admin
-        src: files/etc/sudoers.d/admin
+        dest: /etc/sudoers.d/admin
+        src: /etc/sudoers.d/admin
         owner: root
         group: root
         mode: 0440
@@ -53,8 +53,8 @@
 
     - name: Add hardened SSH config
       copy:
-        dest: files/etc/ssh/sshd_config
-        src: files/etc/ssh/sshd_config
+        dest: /etc/ssh/sshd_config
+        src: /etc/ssh/sshd_config
         owner: root
         group: root
         mode: 0600
@@ -91,8 +91,8 @@
 #Task 4: Security policy improvements
     - name: Set a message of the day
       copy:
-        dest: files/etc/motd
-        src: files/etc/motd
+        dest: /etc/motd
+        src: /etc/motd
         owner: root
         group: root
         mode: 0644
@@ -101,10 +101,10 @@
     - name: Set a login banner
       copy:
         dest: "{{ item }}"
-        src: files/etc/issue
+        src: /etc/issue
         owner: root
         group: root
         mode: 0644
       with_items:
-        - files/etc/issue
-        - files/etc/issue.net
+        - /etc/issue
+        - /etc/issue.net
